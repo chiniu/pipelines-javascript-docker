@@ -6,7 +6,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      docker build -t test .
+      git clone https://github.com/docker-library/hello-world.git && cd "$(basename "$_" .git)"
+      docker build -f Dockerfile.build -t test 
       #docker login compalesg.azurecr.io -u 00000000-0000-0000-0000-000000000000 -p eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkszSUk6VlhERTpTSlZHOjc3QUw6Q0VZTjpYTzZIOlRHWlA6S1hBTDpIWUROOlJKNUc6TjQ2NTo0TkdNIn0.eyJqdGkiOiI3ODk5YmZmYS01YjkwLTQ0ZjAtOGUwYi01MzI2OGI2ZGViODUiLCJzdWIiOiJCZW5fTWVuZ0Bjb21wYWwuY29tIiwibmJmIjoxNjkyODYxODExLCJleHAiOjE2OTI4NzM1MTEsImlhdCI6MTY5Mjg2MTgxMSwiaXNzIjoiQXp1cmUgQ29udGFpbmVyIFJlZ2lzdHJ5IiwiYXVkIjoiY29tcGFsZXNnLmF6dXJlY3IuaW8iLCJ2ZXJzaW9uIjoiMS4wIiwicmlkIjoiNzBhMmZjZGZiZjY3NDI0N2FhMTg2Njk5NzU2NWNiNmEiLCJncmFudF90eXBlIjoicmVmcmVzaF90b2tlbiIsImFwcGlkIjoiMDRiMDc3OTUtOGRkYi00NjFhLWJiZWUtMDJmOWUxYmY3YjQ2IiwidGVuYW50IjoiZWFjZTdhNjUtZTkwMC00ZTU3LTlkMzItMTFkMTk1YmZmYzYwIiwicGVybWlzc2lvbnMiOnsiQWN0aW9ucyI6WyJyZWFkIiwid3JpdGUiLCJkZWxldGUiLCJkZWxldGVkL3JlYWQiLCJkZWxldGVkL3Jlc3RvcmUvYWN0aW9uIl0sIk5vdEFjdGlvbnMiOm51bGx9LCJyb2xlcyI6W119.bRQ2P79Y6rtFop0qCk728s-S7u0NiNTNYMtYodFfrI0XCtLGMs6dtBB1JL3CBrRmz2wWO3QuIk904Bz53OPU4qEIS2oG1gWppb_DuOjCm4_WCjKLCGZ2WkfAMzlDChzIKJ0quSq_8X3vVb_cO7b6IYrzAHFqTd7unSrj8czMw-L0PgWofeUbu40Y8RE6DTQpmqoMwRvwOzkKfZE2GK-d6ZTVFXQy91ZC063bajJkca1CscZsdSkV-2Oxuh-WPkZlTq7s-xco8s_OHaMttWuPpI_mYKdbMk1hc7bUv3KdIlPTf3WKWjyn6TZbgYol3zAhvzBjm2mRec8bFAi9yhYZfg
       docker login compalesg.azurecr.io -u compalesg -p S6BhUz9H7oUG6hFauPv3h7uSO/YDRCIQEgnnn7e8Qm+ACRAgHL9m
       docker tag test compalesg.azurecr.io/test:0

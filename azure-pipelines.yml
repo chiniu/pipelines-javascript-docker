@@ -11,5 +11,4 @@ steps:
       docker login compalesg.azurecr.io -u compalesg -p S6BhUz9H7oUG6hFauPv3h7uSO/YDRCIQEgnnn7e8Qm+ACRAgHL9m
       docker tag test1 compalesg.azurecr.io/tese:1
       docker push compalesg.azurecr.io/test:1
-      docker push compalesg.azurecr.io/test:latest
       docker logout compalesg.azurecr.io
